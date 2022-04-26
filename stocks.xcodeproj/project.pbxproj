@@ -34,6 +34,7 @@
 		75A3FEEF2815FE48001AECB8 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 75A3FEEE2815FE48001AECB8 /* FirebaseFirestore */; };
 		75A3FEF12815FE48001AECB8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 75A3FEF02815FE48001AECB8 /* FirebaseStorage */; };
 		75A3FEF32815FEC5001AECB8 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FEF22815FEC5001AECB8 /* NewsController.swift */; };
+		75A3FF35281791C2001AECB8 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		65CF81982482CD0C00CE0C77 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		75A3FEE12815FB74001AECB8 /* LoginServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceController.swift; sourceTree = "<group>"; };
 		75A3FEF22815FEC5001AECB8 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
+		75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +116,7 @@
 				654B8C8C248057EA003A6024 /* Main.storyboard */,
 				654B8C9B248058B0003A6024 /* Model */,
 				75A3FEE12815FB74001AECB8 /* LoginServiceController.swift */,
+				75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */,
 				75A3FEF22815FEC5001AECB8 /* NewsController.swift */,
 			);
 			path = stocks;
@@ -230,6 +233,7 @@
 				654B8CA3248058B0003A6024 /* Tiingo.swift in Sources */,
 				65CF819724820DDA00CE0C77 /* Iex.swift in Sources */,
 				654B8CA2248058B0003A6024 /* AddStockViewController.swift in Sources */,
+				75A3FF35281791C2001AECB8 /* CalculatorViewController.swift in Sources */,
 				65CF819524820A6200CE0C77 /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
