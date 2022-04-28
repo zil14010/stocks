@@ -35,6 +35,7 @@
 		75A3FEF12815FE48001AECB8 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 75A3FEF02815FE48001AECB8 /* FirebaseStorage */; };
 		75A3FEF32815FEC5001AECB8 /* NewsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FEF22815FEC5001AECB8 /* NewsController.swift */; };
 		75A3FF35281791C2001AECB8 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */; };
+		75A3FF37281AF681001AECB8 /* GoogleService-Info-2.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A3FF36281AF681001AECB8 /* GoogleService-Info-2.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		75A3FEE12815FB74001AECB8 /* LoginServiceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceController.swift; sourceTree = "<group>"; };
 		75A3FEF22815FEC5001AECB8 /* NewsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsController.swift; sourceTree = "<group>"; };
 		75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		75A3FF36281AF681001AECB8 /* GoogleService-Info-2.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-2.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				65CF81982482CD0C00CE0C77 /* Extension.swift */,
 				654B8CAD2480ABCF003A6024 /* Item.swift */,
 				654B8C8A248057EA003A6024 /* MyStocksViewController.swift */,
+				75A3FF36281AF681001AECB8 /* GoogleService-Info-2.plist */,
 				654B8C88248057EA003A6024 /* SceneDelegate.swift */,
 				65CF819424820A6200CE0C77 /* Theme.swift */,
 				654B8CA0248058B0003A6024 /* UpdateLabel.swift */,
@@ -206,6 +209,7 @@
 			files = (
 				654B8C93248057EC003A6024 /* LaunchScreen.storyboard in Resources */,
 				654B8C90248057EC003A6024 /* Assets.xcassets in Resources */,
+				75A3FF37281AF681001AECB8 /* GoogleService-Info-2.plist in Resources */,
 				654B8C8E248057EA003A6024 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -379,13 +383,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B429FM95H;
 				INFOPLIST_FILE = stocks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.stocks1;
+				PRODUCT_BUNDLE_IDENTIFIER = "project-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -397,13 +402,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2B429FM95H;
 				INFOPLIST_FILE = stocks/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = dk.stocks1;
+				PRODUCT_BUNDLE_IDENTIFIER = "project-final";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
