@@ -27,7 +27,6 @@ class MyStocksViewController: UIViewController {
 
     var footerView: UpdateLabel {
         let label = UpdateLabel()
-
         var f = view.bounds
         f.size.height = 15
         label.frame = f
