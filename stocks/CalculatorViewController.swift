@@ -203,9 +203,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                                 options: .transitionCrossDissolve,
                                 animations: {
                 self.stock_price.isHidden = true
+                self.stock_price_label.isHidden = true
                             })
             //stock_price.isHidden = true
-            stock_price_label.isHidden = true
+            
+        }
+        if (dataSource[indexPath.row] == "CoveredCall"){
+            UIView.transition(with: stock_price, duration: 3,
+                              options: .transitionFlipFromLeft,
+                                animations: {
+                self.stock_price.isHidden = false
+                self.stock_price_label.isHidden = false
+                            })
+            //stock_price.isHidden = true
+            
         }
         
     }
