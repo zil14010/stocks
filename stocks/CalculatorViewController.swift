@@ -22,6 +22,7 @@ class CellClass: UITableViewCell {
 class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var stock_price: UITextField!
     
+    @IBOutlet weak var strike_price_label: UILabel!
     @IBOutlet weak var btnSelectFruit: UIButton!{ didSet{
         //testing.text = "114514"
         //handle()
@@ -49,10 +50,12 @@ class ViewController: UIViewController,UITextFieldDelegate {
         Skrike_Price.delegate = self
         price_pa_contract.delegate = self
         Target_Price.delegate = self
+
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
     }
+
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         //For mobile numer validation
         if textField == number_of_contract {
@@ -113,22 +116,33 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var testing: UILabel?
     @IBOutlet weak var number_of_contract: UITextField!
     @IBOutlet weak var price_pa_contract: UITextField!
+    @IBOutlet weak var Target_Price_Label: UILabel!
     @IBOutlet weak var Target_Price: UITextField!
     @IBOutlet weak var Skrike_Price: UITextField!
-    
     @IBOutlet weak var stock_price_label: UILabel!
-    
+    @IBOutlet weak var break_even_label: UILabel!
+    @IBOutlet weak var m_loss_label: UILabel!
+    @IBOutlet weak var m_profit_label: UILabel!
+    @IBOutlet weak var maxi_profit: UILabel!
+    @IBOutlet weak var maxi_loss: UILabel!
+    @IBOutlet weak var break_even: UILabel!
     @IBAction func result(_ sender: UIButton) {
         let pc0 = price_pa_contract.text!
         let n = number_of_contract.text!
         let sp = Skrike_Price.text!
         let tp = Target_Price.text!
-        var stock_price = stock_price.text!
+        let stock_price = stock_price.text!
         var total_cost_local : Double
         var potential_profit_local : Double?
         var potential_returen_local : Double?
+        let checking = price_pa_contract.text
+        let checking2 = number_of_contract.text
       //  stock_price.isHidden = true
-        
+        if(checking == "" || checking2 == ""){
+           // print("whshoklashdkahdkashd",object_getClass(pc0)?.description())
+            showError()
+            return
+        }
         if(testing?.text == TradeType.Call.rawValue){
             //longcall
           //  self.stock_price.isHidden = true
@@ -148,16 +162,31 @@ class ViewController: UIViewController,UITextFieldDelegate {
             potential_profit.text = String(format: "%.2f",potential_profit_local!) + "%"
             potential_return.text = String(format: "%.2f",potential_returen_local!) + "$"
         }
-        
+        //maxi profit: when premium + benifit = price of call * number of option * 100 + strike price * 100 * number - stock price * 100 * number of option
         else if(testing?.text == TradeType.CoveredCall.rawValue){
          //   pc0//premium
-           // var maxi_profit = pc0 * n + (sp - stock_price)
-         //   var break_even = stock_price - pc0 * n
-         //   var max_loss = pc0 * n - stock_price
+            let call_premium = Double(pc0)! * Double(n)! * 100
+            let previous = Double(stock_price)! * Double(n)! * 100
+            let current = Double(tp)! * Double(n)! * 100
+            if(Double(sp)! > Double(tp)!){
+                //would not execute contract
+                let maxi_profit_local = call_premium + current - previous
+                maxi_profit.text! = String(format: "%.2f", maxi_profit_local) + "$"
+
+            }
+            else if(Double(sp)! <= Double(tp)!){
+                //would execute contract
+                let maxi_profit_local = call_premium + (Double(sp)! - Double(stock_price)!) * Double(n)! * 100
+                maxi_profit.text! = String(format: "%.2f", maxi_profit_local) + "$"
+               
+            }
+            let maximum_loss = call_premium - Double(stock_price)! * Double(n)! * 100
+            maxi_loss.text! = String(format: "%.2f", maximum_loss) + "$"
+            let break_even_point = (call_premium + previous) / Double(n)! / 100
+            break_even.text! =  String(format: "%.2f",break_even_point) + "$"
+            
         }
         
-        
-       // self.stock_price.isHidden = false
         
     }
     @IBOutlet weak var testing1: UILabel!
@@ -166,13 +195,9 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var total_cost: UILabel!
     @IBOutlet weak var potential_profit: UILabel!
     @IBOutlet weak var potential_return: UILabel!
-    /* @IBAction func onClickSelectGender(_ sender: Any) {
-        dataSource = ["Male", "Female"]
-        selectedButton = btnSelectGender
-        addTransparentView(frames: btnSelectGender.frame)
-    }*/
+
     func showError() {
-        let alert = UIAlertController(title: "Logout Error", message: "Could not Logout", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Cal Error", message: "nil input", preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
         alert.addAction(action)
         self.present(alert, animated: true, completion: nil)
@@ -199,21 +224,48 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         removeTransparentView()
         testing?.text = dataSource[indexPath.row]
         if (dataSource[indexPath.row] == "Call" || dataSource[indexPath.row] == "Put"){
-            UIView.transition(with: stock_price, duration: 3,
+            UIView.transition(with: stock_price, duration: 1,
                                 options: .transitionCrossDissolve,
                                 animations: {
                 self.stock_price.isHidden = true
                 self.stock_price_label.isHidden = true
+                self.testing1.isHidden = false
+                self.testing2.isHidden = false
+                self.testing3.isHidden = false
+                self.total_cost.isHidden = false
+                self.potential_profit.isHidden = false
+                self.potential_return.isHidden = false
+                self.maxi_loss.isHidden = true
+                self.maxi_profit.isHidden = true
+                self.break_even.isHidden = true
+                self.m_loss_label.isHidden = true
+                self.m_profit_label.isHidden = true
+                self.break_even_label.isHidden = true
+                self.Target_Price_Label.text = "Target Price"
+
+                
                             })
-            //stock_price.isHidden = true
             
         }
         if (dataSource[indexPath.row] == "CoveredCall"){
-            UIView.transition(with: stock_price, duration: 3,
+            UIView.transition(with: stock_price, duration: 1,
                               options: .transitionFlipFromLeft,
                                 animations: {
+                self.testing1.isHidden = true
+                self.testing2.isHidden = true
+                self.testing3.isHidden = true
+                self.total_cost.isHidden = true
+                self.potential_profit.isHidden = true
+                self.potential_return.isHidden = true
                 self.stock_price.isHidden = false
                 self.stock_price_label.isHidden = false
+                self.maxi_loss.isHidden = false
+                self.maxi_profit.isHidden = false
+                self.break_even.isHidden = false
+                self.m_loss_label.isHidden = false
+                self.m_profit_label.isHidden = false
+                self.break_even_label.isHidden = false
+                self.Target_Price_Label.text = "Current Price"
                             })
             //stock_price.isHidden = true
             
