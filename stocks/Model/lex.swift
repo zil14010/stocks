@@ -1,12 +1,13 @@
 //
-//  Iex.swift
+//  lex.swift
 //  stocks
 //
-//  Created by Daniel on 5/29/20.
-//  Copyright © 2020 dk. All rights reserved.
+//  Created by zipeng lin on 5/3/22.
+//  Copyright © 2022 dk. All rights reserved.
 //
 
 import Foundation
+
 
 // TODO: support https://sandbox.iexapis.com/stable/stock/market/batch?symbols=aapl&types=company,balance-sheet&token=Tsk_309349a480bc4f4e922f63c57b69e3de
 struct Iex {

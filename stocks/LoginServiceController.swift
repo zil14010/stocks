@@ -6,12 +6,6 @@
 //  Copyright © 2022 dk. All rights reserved.
 //
 
-//
-//  LoginViewController.swift
-//  HW3
-//
-//  Created by zipeng lin on 4/17/22.
-//
 
 import Foundation
 import UIKit
@@ -19,7 +13,8 @@ import Firebase
 
 class LoginViewController: UIViewController {
 
-    
+    var userDefault = UserDefaults.standard
+    var launchedBefore = UserDefaults.standard.bool(forKey: "usersignedin")
     @IBOutlet weak var userEmailIDTextField: UITextField!
     @IBOutlet weak var userPasswordTextField: UITextField!
   //  var myMasterViewController: MasterViewController?
@@ -34,7 +29,11 @@ class LoginViewController: UIViewController {
         userPasswordTextField.isSecureTextEntry = true
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        if userDefault.bool(forKey: "usersignedin") {
+                  performSegue(withIdentifier: "Verified", sender: self)
+              }
+    }
     
     @IBAction func login_button(_ sender: Any) {
         guard let email = userEmailIDTextField.text, let password = userPasswordTextField.text else {
@@ -45,7 +44,7 @@ class LoginViewController: UIViewController {
             return
         }
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
-            
+           // var credential: AuthCredential = EmailAuthProvider.credential(withEmail: email, password: password)
             if error != nil {
                 let alert = UIAlertController(title: "Login Error", message: "password problem", preferredStyle: .alert)
                 let action = UIAlertAction(title: "Okay", style: .default, handler: nil)
@@ -58,9 +57,11 @@ class LoginViewController: UIViewController {
             }
             
             else{
-           
+            UserDefaults.standard.set(Auth.auth().currentUser!.uid, forKey: "username")
+            UserDefaults.standard.synchronize()
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let UserInfoViewController = storyBoard.instantiateViewController(withIdentifier: "navi") as! UINavigationController
+            let UserInfoViewController = storyBoard.instantiateViewController(withIdentifier: "tab") as! UITabBarController
+            (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootViewController(UserInfoViewController)
             self.present(UserInfoViewController, animated: true, completion: nil)
             }
     

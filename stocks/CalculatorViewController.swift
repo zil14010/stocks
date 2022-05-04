@@ -14,7 +14,7 @@
 //
 
 import UIKit
-
+import Charts
 class CellClass: UITableViewCell {
     
 }
@@ -22,6 +22,18 @@ class CellClass: UITableViewCell {
 class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var stock_price: UITextField!
     
+    @IBOutlet weak var result_button: UIButton!
+    @IBOutlet weak var chart_button: UIButton!
+    @IBAction func the_button(_ sender: UIButton) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let LineChartViewController = storyBoard.instantiateViewController(withIdentifier: "LineChart") as! LineChartViewController
+        //showError()
+        LineChartViewController.x.append(2.0)
+        LineChartViewController.y.append("s")
+        self.present(LineChartViewController, animated: true, completion: {
+           
+        })
+    }
     @IBOutlet weak var strike_price_label: UILabel!
     @IBOutlet weak var btnSelectFruit: UIButton!{ didSet{
         //testing.text = "114514"
@@ -36,6 +48,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         case CoveredCall = "CoveredCall"
         
     }
+ //   @IBOutlet weak var chartview: UIView!
     let transparentView = UIView()
     let tableView = UITableView()
     var what: String = ""
@@ -46,14 +59,18 @@ class ViewController: UIViewController,UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        result_button.isHidden = true
+        chart_button.isHidden = true
         number_of_contract.delegate = self
         Skrike_Price.delegate = self
         price_pa_contract.delegate = self
         Target_Price.delegate = self
-
+    //    var testVC: LineChartViewController = LineChartViewController();
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
+        
+       
     }
 
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -113,7 +130,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
         selectedButton = btnSelectFruit
         addTransparentView(frames: btnSelectFruit.frame)
     }
-    @IBOutlet weak var testing: UILabel?
+ //   @IBOutlet weak var testing: UILabel?
     @IBOutlet weak var number_of_contract: UITextField!
     @IBOutlet weak var price_pa_contract: UITextField!
     @IBOutlet weak var Target_Price_Label: UILabel!
@@ -143,7 +160,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
             showError()
             return
         }
-        if(testing?.text == TradeType.Call.rawValue){
+        var type = btnSelectFruit.title(for: .normal)
+        if(type == TradeType.Call.rawValue){
             //longcall
           //  self.stock_price.isHidden = true
             total_cost_local = Double(pc0)! * Double(n)! * 100
@@ -153,7 +171,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             potential_profit.text = String(format: "%.2f",potential_profit_local!) + "%"
             potential_return.text = String(format: "%.2f",potential_returen_local!) + "$"
         }
-        else if(testing?.text == TradeType.Put.rawValue){
+        else if(type == TradeType.Put.rawValue){
            // self.stock_price.isHidden = true
             total_cost_local = Double(pc0)! * Double(n)! * 100
             potential_profit_local = (Double(sp)! - Double(tp)! - Double(pc0)!) / Double(pc0)! * 100
@@ -163,7 +181,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             potential_return.text = String(format: "%.2f",potential_returen_local!) + "$"
         }
         //maxi profit: when premium + benifit = price of call * number of option * 100 + strike price * 100 * number - stock price * 100 * number of option
-        else if(testing?.text == TradeType.CoveredCall.rawValue){
+        else if(type == TradeType.CoveredCall.rawValue){
          //   pc0//premium
             let call_premium = Double(pc0)! * Double(n)! * 100
             let previous = Double(stock_price)! * Double(n)! * 100
@@ -184,6 +202,8 @@ class ViewController: UIViewController,UITextFieldDelegate {
             maxi_loss.text! = String(format: "%.2f", maximum_loss) + "$"
             let break_even_point = (call_premium + previous) / Double(n)! / 100
             break_even.text! =  String(format: "%.2f",break_even_point) + "$"
+        
+            
             
         }
         
@@ -222,7 +242,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedButton.setTitle(dataSource[indexPath.row], for: .normal)
         removeTransparentView()
-        testing?.text = dataSource[indexPath.row]
+       // testing?.text = dataSource[indexPath.row]
         if (dataSource[indexPath.row] == "Call" || dataSource[indexPath.row] == "Put"){
             UIView.transition(with: stock_price, duration: 1,
                                 options: .transitionCrossDissolve,
@@ -242,9 +262,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 self.m_profit_label.isHidden = true
                 self.break_even_label.isHidden = true
                 self.Target_Price_Label.text = "Target Price"
-
-                
-                            })
+                self.result_button.isHidden = false
+                self.chart_button.isHidden = true
+                if(self.dataSource[indexPath.row] == "Put"){
+                self.btnSelectFruit.setTitleColor(.red, for: .normal)
+                }
+                if(self.dataSource[indexPath.row] == "Call"){
+                self.btnSelectFruit.setTitleColor(.systemGreen, for: .normal)
+                }
+                })
             
         }
         if (dataSource[indexPath.row] == "CoveredCall"){
@@ -266,6 +292,10 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 self.m_profit_label.isHidden = false
                 self.break_even_label.isHidden = false
                 self.Target_Price_Label.text = "Current Price"
+                self.btnSelectFruit.setTitleColor(.systemTeal, for: .normal)
+                self.result_button.isHidden = false
+                self.chart_button.isHidden = false
+
                             })
             //stock_price.isHidden = true
             

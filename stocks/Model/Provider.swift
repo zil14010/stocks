@@ -2,9 +2,10 @@
 //  Provider.swift
 //  stocks
 //
-//  Created by Daniel on 5/28/20.
-//  Copyright © 2020 dk. All rights reserved.
+//  Created by zipeng lin on 5/3/22.
+//  Copyright © 2022 dk. All rights reserved.
 //
+
 
 import UIKit
 
@@ -347,7 +348,6 @@ private extension DetailSection {
         let top = Array(items.prefix(limit))
 
         // TODO: have a way to see whole list (create footer, tap footer to see?)
-
         let section = DetailSection(header: "executives", items: top)
 
         return section
