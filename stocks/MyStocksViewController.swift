@@ -116,7 +116,7 @@ private extension MyStocksViewController {
         updateNavBar(isEditing)
         tableView.setEditing(isEditing, animated: true)
     }
-
+    
 //    @objc
 //    func fetchStockDatawip() {
 //        guard let list = dataSource.first?.items else { return }

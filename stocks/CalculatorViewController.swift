@@ -15,6 +15,7 @@
 
 import UIKit
 import Charts
+import Firebase
 class CellClass: UITableViewCell {
     
 }
@@ -22,14 +23,27 @@ class CellClass: UITableViewCell {
 class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var stock_price: UITextField!
     
+    @IBAction func logout(_ sender: UIButton) {
+        do{
+          try Auth.auth().signOut()
+            UserDefaults.standard.removeObject(forKey: "username")
+            UserDefaults.standard.synchronize()
+            exit(-1)
+        }
+        catch{
+            showError()
+            return
+            
+        }
+    }
     @IBOutlet weak var result_button: UIButton!
     @IBOutlet weak var chart_button: UIButton!
     @IBAction func the_button(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let LineChartViewController = storyBoard.instantiateViewController(withIdentifier: "LineChart") as! LineChartViewController
         //showError()
-        LineChartViewController.x.append(2.0)
-        LineChartViewController.y.append("s")
+       // LineChartViewController.x.append(2.0)
+       // LineChartViewController.y.append("s")
         self.present(LineChartViewController, animated: true, completion: {
            
         })
