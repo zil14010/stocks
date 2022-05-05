@@ -5,13 +5,7 @@
 //  Created by zipeng lin on 4/25/22.
 //  Copyright © 2022 dk. All rights reserved.
 //
-//
-//  ViewController.swift
-//  DropDownSelection
-//
-//  Created by SHUBHAM AGARWAL on 26/07/19.
-//  Copyright © 2019 SHUBHAM AGARWAL. All rights reserved.
-//
+
 
 import UIKit
 import Charts
@@ -36,40 +30,55 @@ class ViewController: UIViewController,UITextFieldDelegate {
             
         }
     }
+    enum MyError: Error {
+        case FoundNil(String)
+    }
     @IBOutlet weak var result_button: UIButton!
     @IBOutlet weak var chart_button: UIButton!
     @IBAction func the_button(_ sender: UIButton) {
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let LineChartViewController = storyBoard.instantiateViewController(withIdentifier: "LineChart") as! LineChartViewController
-        //showError()
-       // LineChartViewController.x.append(2.0)
-       // LineChartViewController.y.append("s")
+        do{
+        LineChartViewController.x.append(0)
+            guard let break_even_double = break_even.text?.dropLast() else{
+            throw MyError.FoundNil("nils")
+        }
+        
+        var skrike_price_double = Skrike_Price.text!
+        var maxi_loss_double = maxi_loss.text!.dropLast()
+        var maxi_profit_double = maxi_profit.text!.dropLast()
+        var far = Double(skrike_price_double)! + 20
+        LineChartViewController.x.append(Double(break_even_double)!)
+        LineChartViewController.x.append(Double(skrike_price_double)!)
+        LineChartViewController.x.append(Double(far))
+        LineChartViewController.y.append(Double(maxi_loss_double)!)
+        LineChartViewController.y.append(0)
+        LineChartViewController.y.append(Double(maxi_profit_double)!)
+        LineChartViewController.y.append(Double(maxi_profit_double)!)}
+        catch{
+            showError()
+            return
+        }
+
+
         self.present(LineChartViewController, animated: true, completion: {
            
         })
     }
     @IBOutlet weak var strike_price_label: UILabel!
     @IBOutlet weak var btnSelectFruit: UIButton!{ didSet{
-        //testing.text = "114514"
-        //handle()
     }}
-  
-
-    
     enum TradeType: String {
         case Call = "Call"
         case Put = "Put"
         case CoveredCall = "CoveredCall"
         
     }
- //   @IBOutlet weak var chartview: UIView!
     let transparentView = UIView()
     let tableView = UITableView()
     var what: String = ""
     var selectedButton = UIButton()
-    
     var dataSource = [String]()
-   // @IBOutlet weak var number_of_contract: UITextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,7 +88,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         Skrike_Price.delegate = self
         price_pa_contract.delegate = self
         Target_Price.delegate = self
-    //    var testVC: LineChartViewController = LineChartViewController();
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(CellClass.self, forCellReuseIdentifier: "Cell")
@@ -144,7 +152,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
         selectedButton = btnSelectFruit
         addTransparentView(frames: btnSelectFruit.frame)
     }
- //   @IBOutlet weak var testing: UILabel?
     @IBOutlet weak var number_of_contract: UITextField!
     @IBOutlet weak var price_pa_contract: UITextField!
     @IBOutlet weak var Target_Price_Label: UILabel!
@@ -168,16 +175,13 @@ class ViewController: UIViewController,UITextFieldDelegate {
         var potential_returen_local : Double?
         let checking = price_pa_contract.text
         let checking2 = number_of_contract.text
-      //  stock_price.isHidden = true
         if(checking == "" || checking2 == ""){
-           // print("whshoklashdkahdkashd",object_getClass(pc0)?.description())
             showError()
             return
         }
         var type = btnSelectFruit.title(for: .normal)
         if(type == TradeType.Call.rawValue){
             //longcall
-          //  self.stock_price.isHidden = true
             total_cost_local = Double(pc0)! * Double(n)! * 100
             potential_profit_local = (Double(tp)! - Double(sp)! - Double(pc0)!) / Double(pc0)!
             potential_returen_local = (Double(tp)! - Double(sp)! - Double(pc0)!) * Double(n)! * 100
@@ -186,7 +190,6 @@ class ViewController: UIViewController,UITextFieldDelegate {
             potential_return.text = String(format: "%.2f",potential_returen_local!) + "$"
         }
         else if(type == TradeType.Put.rawValue){
-           // self.stock_price.isHidden = true
             total_cost_local = Double(pc0)! * Double(n)! * 100
             potential_profit_local = (Double(sp)! - Double(tp)! - Double(pc0)!) / Double(pc0)! * 100
             potential_returen_local = (Double(sp)! - Double(tp)! - Double(pc0)!) * Double(n)! * 100
@@ -194,9 +197,7 @@ class ViewController: UIViewController,UITextFieldDelegate {
             potential_profit.text = String(format: "%.2f",potential_profit_local!) + "%"
             potential_return.text = String(format: "%.2f",potential_returen_local!) + "$"
         }
-        //maxi profit: when premium + benifit = price of call * number of option * 100 + strike price * 100 * number - stock price * 100 * number of option
         else if(type == TradeType.CoveredCall.rawValue){
-         //   pc0//premium
             let call_premium = Double(pc0)! * Double(n)! * 100
             let previous = Double(stock_price)! * Double(n)! * 100
             let current = Double(tp)! * Double(n)! * 100
@@ -311,7 +312,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 self.chart_button.isHidden = false
 
                             })
-            //stock_price.isHidden = true
             
         }
         

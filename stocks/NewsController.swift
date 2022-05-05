@@ -18,19 +18,21 @@ class LineChartViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    customizeChart(dataPoints: y, x_values: x)
+    customizeChart(dataPoints: x, y_values: y)
   }
-  
-  func customizeChart(dataPoints: [Double], x_values: [Double]) {
-    
+  func customizeChart(dataPoints: [Double], y_values: [Double]) {
+    print(y_values)
+    print(dataPoints)
     var dataEntries: [ChartDataEntry] = []
-    //var label_1: [String?] = ["profit potential","loss potential","breakeven"]
-    for i in 0..<dataPoints.count {
-        let dataEntry = ChartDataEntry(x: Double(i), y: Double(x_values[i]))
+    var x = 0
+    for i in dataPoints {
+        
+        let dataEntry = ChartDataEntry(x: Double(i), y: Double(y_values[x]))
+        x = x+1
       dataEntries.append(dataEntry)
     }
     
-      let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "loss potential")
+      let lineChartDataSet = LineChartDataSet(entries: dataEntries, label: "profit predict")
     let lineChartData = LineChartData(dataSet: lineChartDataSet)
     lineChartView.data = lineChartData
   }
