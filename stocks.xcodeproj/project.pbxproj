@@ -103,25 +103,14 @@
 			isa = PBXGroup;
 			children = (
 				654B8C94248057EC003A6024 /* Info.plist */,
-				654B8C9A248058B0003A6024 /* AddStockViewController.swift */,
 				654B8C86248057EA003A6024 /* AppDelegate.swift */,
-				654B8CA924807D5E003A6024 /* DetailViewController.swift */,
-				65CF81982482CD0C00CE0C77 /* Extension.swift */,
-				654B8CAD2480ABCF003A6024 /* Item.swift */,
-				654B8C8A248057EA003A6024 /* MyStocksViewController.swift */,
 				654B8C88248057EA003A6024 /* SceneDelegate.swift */,
-				65CF819424820A6200CE0C77 /* Theme.swift */,
-				75A3FF4728231DDF001AECB8 /* GoogleService-Info.plist */,
-				654B8CA0248058B0003A6024 /* UpdateLabel.swift */,
-				654B8C9F248058B0003A6024 /* UserDefault.swift */,
 				654B8C8F248057EC003A6024 /* Assets.xcassets */,
 				654B8C91248057EC003A6024 /* LaunchScreen.storyboard */,
 				654B8C8C248057EA003A6024 /* Main.storyboard */,
+				75A3FF4A2824F638001AECB8 /* Service */,
+				75A3FF492824F5AF001AECB8 /* ViewController */,
 				654B8C9B248058B0003A6024 /* Model */,
-				75A3FEE12815FB74001AECB8 /* LoginServiceController.swift */,
-				75A3FF4528231A7F001AECB8 /* RegisterViewController.swift */,
-				75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */,
-				75A3FEF22815FEC5001AECB8 /* NewsController.swift */,
 			);
 			path = stocks;
 			sourceTree = "<group>";
@@ -134,6 +123,33 @@
 				75A3FF3D28221BEA001AECB8 /* MyQuote.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		75A3FF492824F5AF001AECB8 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				654B8CA924807D5E003A6024 /* DetailViewController.swift */,
+				654B8C9A248058B0003A6024 /* AddStockViewController.swift */,
+				75A3FF4528231A7F001AECB8 /* RegisterViewController.swift */,
+				75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */,
+				75A3FEF22815FEC5001AECB8 /* NewsController.swift */,
+				75A3FEE12815FB74001AECB8 /* LoginServiceController.swift */,
+				654B8C8A248057EA003A6024 /* MyStocksViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		75A3FF4A2824F638001AECB8 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				654B8CA0248058B0003A6024 /* UpdateLabel.swift */,
+				654B8CAD2480ABCF003A6024 /* Item.swift */,
+				65CF81982482CD0C00CE0C77 /* Extension.swift */,
+				75A3FF4728231DDF001AECB8 /* GoogleService-Info.plist */,
+				65CF819424820A6200CE0C77 /* Theme.swift */,
+				654B8C9F248058B0003A6024 /* UserDefault.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
