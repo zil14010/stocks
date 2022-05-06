@@ -36,6 +36,10 @@ class ViewController: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var result_button: UIButton!
     @IBOutlet weak var chart_button: UIButton!
     @IBAction func the_button(_ sender: UIButton) {
+        if(Skrike_Price.text == "" || maxi_profit.text == ""){
+            showError()
+            return
+        }
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let LineChartViewController = storyBoard.instantiateViewController(withIdentifier: "LineChart") as! LineChartViewController
         do{
@@ -44,10 +48,11 @@ class ViewController: UIViewController,UITextFieldDelegate {
             throw MyError.FoundNil("nils")
         }
         
-        var skrike_price_double = Skrike_Price.text!
-        var maxi_loss_double = maxi_loss.text!.dropLast()
-        var maxi_profit_double = maxi_profit.text!.dropLast()
-        var far = Double(skrike_price_double)! + 20
+        let skrike_price_double = Skrike_Price.text!
+        let maxi_loss_double = maxi_loss.text!.dropLast()
+        let maxi_profit_double = maxi_profit.text!.dropLast()
+        let far = Double(skrike_price_double)! + 20
+        
         LineChartViewController.x.append(Double(break_even_double)!)
         LineChartViewController.x.append(Double(skrike_price_double)!)
         LineChartViewController.x.append(Double(far))
