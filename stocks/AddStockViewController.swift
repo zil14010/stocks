@@ -2,8 +2,8 @@
 //  AddStockViewController.swift
 //  stocks
 //
-//  Created by Daniel on 5/26/20.
-//  Copyright © 2020 dk. All rights reserved.
+//  Created by zipeng lin on 4/26/22.
+//  Copyright © 2022 dk. All rights reserved.
 //
 
 import UIKit
@@ -97,9 +97,6 @@ extension AddStockViewController: UISearchResultsUpdating {
             text.count > 0 else { return }
 
         query = text
-
-        /// Credits: https://stackoverflow.com/questions/24330056/how-to-throttle-search-based-on-typing-speed-in-ios-uisearchbar
-        /// to limit network activity, reload half a second after last key press.
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(loadSearch), object: nil)
         perform(#selector(loadSearch), with: nil, afterDelay: 0.5)
     }

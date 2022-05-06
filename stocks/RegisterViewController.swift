@@ -3,7 +3,7 @@
 //  HW3
 //
 //  Created by zipeng lin on 4/17/22.
-//
+//  Copyright © 2022 dk. All rights reserved.
 
 import Foundation
 import Firebase

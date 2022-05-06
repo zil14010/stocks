@@ -2,15 +2,13 @@
 //  DetailViewController.swift
 //  stocks
 //
-//  Created by Daniel on 5/28/20.
-//  Copyright © 2020 dk. All rights reserved.
+//  Created by zipeng lin on 4/28/22.
+//  Copyright © 2022 dk. All rights reserved.
 //
 
 import UIKit
 
-// TODO: show chart ?
-// TODO: show price items in different cell layout
-// TODO: show change of price/percent in different colors
+
 class DetailViewController: UIViewController {
 
     var item: Item? {

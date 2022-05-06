@@ -530,8 +530,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mry-cD-Ncf">
-                                <rect key="frame" x="50" y="50" width="314" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mry-cD-Ncf">
+                                <rect key="frame" x="20" y="50" width="374" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="AaR-fH-AKe"/>
                                 </constraints>
@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UNh-He-od6" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4132" y="1119"/>
+            <point key="canvasLocation" x="-4133.3333333333339" y="1118.9732142857142"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

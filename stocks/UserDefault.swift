@@ -2,13 +2,12 @@
 //  UserDefault.swift
 //  stocks
 //
-//  Created by Daniel on 5/26/20.
-//  Copyright © 2020 dk. All rights reserved.
+//  Created by zipeng lin on 4/28/22.
+//  Copyright © 2022 dk. All rights reserved.
 //
 
 import Foundation
 
-// Credits: https://www.avanderlee.com/swift/property-wrappers/
 @propertyWrapper
 struct UserDefault<T: Codable> {
     let key: String

@@ -2,8 +2,8 @@
 //  Finnhub.swift
 //  stocks
 //
-//  Created by Daniel on 5/27/20.
-//  Copyright © 2020 dk. All rights reserved.
+//  Created by zipeng lin on 4/30/22.
+//  Copyright © 2022 dk. All rights reserved.
 //
 
 import Foundation
