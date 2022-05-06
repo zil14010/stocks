@@ -68,12 +68,6 @@ class LoginViewController: UIViewController {
         })
     }
     
-  /*  @IBAction func userClickedCreateAccount(_ sender: UIButton) {
-        if let RegisterViewController = self.storyboard?.instantiateViewController(withIdentifier: "Create") as? RegisterViewController {
-            self.present(RegisterViewController, animated: true, completion: nil)
-        }
-    }
-    */
     func showError(userError: NSError) {
         let alert = UIAlertController(title: "Login Error", message: userError.localizedDescription, preferredStyle: .alert)
         let action = UIAlertAction(title: "Okay", style: .default, handler: nil)

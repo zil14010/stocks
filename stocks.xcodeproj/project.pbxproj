@@ -34,8 +34,6 @@
 		75A3FF3A2820CDEB001AECB8 /* Charts in Frameworks */ = {isa = PBXBuildFile; productRef = 75A3FF392820CDEB001AECB8 /* Charts */; };
 		75A3FF3C28221BC1001AECB8 /* Provider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF3B28221BC1001AECB8 /* Provider.swift */; };
 		75A3FF3E28221BEA001AECB8 /* MyQuote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF3D28221BEA001AECB8 /* MyQuote.swift */; };
-		75A3FF4028221C4E001AECB8 /* lex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF3F28221C4E001AECB8 /* lex.swift */; };
-		75A3FF4228221C75001AECB8 /* Tiingo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF4128221C75001AECB8 /* Tiingo.swift */; };
 		75A3FF4628231A80001AECB8 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A3FF4528231A7F001AECB8 /* RegisterViewController.swift */; };
 		75A3FF4828231DDF001AECB8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 75A3FF4728231DDF001AECB8 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -62,8 +60,6 @@
 		75A3FF34281791C2001AECB8 /* CalculatorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		75A3FF3B28221BC1001AECB8 /* Provider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Provider.swift; sourceTree = "<group>"; };
 		75A3FF3D28221BEA001AECB8 /* MyQuote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyQuote.swift; sourceTree = "<group>"; };
-		75A3FF3F28221C4E001AECB8 /* lex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lex.swift; sourceTree = "<group>"; };
-		75A3FF4128221C75001AECB8 /* Tiingo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tiingo.swift; sourceTree = "<group>"; };
 		75A3FF4528231A7F001AECB8 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		75A3FF4728231DDF001AECB8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,8 +132,6 @@
 				654B8C9D248058B0003A6024 /* Finnhub.swift */,
 				75A3FF3B28221BC1001AECB8 /* Provider.swift */,
 				75A3FF3D28221BEA001AECB8 /* MyQuote.swift */,
-				75A3FF3F28221C4E001AECB8 /* lex.swift */,
-				75A3FF4128221C75001AECB8 /* Tiingo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -238,10 +232,8 @@
 				654B8CAE2480ABCF003A6024 /* Item.swift in Sources */,
 				654B8C87248057EA003A6024 /* AppDelegate.swift in Sources */,
 				654B8CA7248058B0003A6024 /* UpdateLabel.swift in Sources */,
-				75A3FF4228221C75001AECB8 /* Tiingo.swift in Sources */,
 				654B8C89248057EA003A6024 /* SceneDelegate.swift in Sources */,
 				75A3FEF32815FEC5001AECB8 /* NewsController.swift in Sources */,
-				75A3FF4028221C4E001AECB8 /* lex.swift in Sources */,
 				654B8CA2248058B0003A6024 /* AddStockViewController.swift in Sources */,
 				75A3FF3E28221BEA001AECB8 /* MyQuote.swift in Sources */,
 				75A3FF35281791C2001AECB8 /* CalculatorViewController.swift in Sources */,
