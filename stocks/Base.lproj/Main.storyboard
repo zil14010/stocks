@@ -440,7 +440,7 @@
                                     <constraint firstAttribute="height" constant="50" id="D0f-St-wzJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="32"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserEmailID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MnL-J4-kl9">
@@ -458,7 +458,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gbh-4n-4iX">
                                 <rect key="frame" x="50" y="424" width="314" height="43"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="24"/>
@@ -469,7 +469,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fzs-Tu-p2C">
                                 <rect key="frame" x="50" y="727" width="314" height="31"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create Account"/>
                                 <connections>
@@ -478,7 +478,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="uxE-GS-6rl"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="uxE-GS-6rl" firstAttribute="bottom" secondItem="fzs-Tu-p2C" secondAttribute="bottom" constant="50" id="7VN-4z-nZ5"/>
                             <constraint firstItem="7LV-k4-ezy" firstAttribute="top" secondItem="uxE-GS-6rl" secondAttribute="top" constant="50" id="C5U-wn-Yhq"/>
@@ -536,7 +536,7 @@
                                     <constraint firstAttribute="height" constant="50" id="AaR-fH-AKe"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" systemColor="systemTealColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="UserEmailID" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6aB-nu-AcU">
@@ -549,7 +549,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qzh-rz-tfV">
                                 <rect key="frame" x="50" y="746" width="314" height="31"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login"/>
                                 <connections>
@@ -564,7 +564,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BN2-3b-32P">
                                 <rect key="frame" x="100" y="407" width="214" height="43"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Create Account">
                                     <fontDescription key="titleFontDescription" type="boldSystem" pointSize="23"/>
@@ -575,13 +575,13 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="54q-BE-Ppg"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BN2-3b-32P" firstAttribute="leading" secondItem="54q-BE-Ppg" secondAttribute="leading" constant="100" id="6Q6-mP-6mz"/>
                             <constraint firstItem="54q-BE-Ppg" firstAttribute="trailing" secondItem="ubF-Pe-ctb" secondAttribute="trailing" constant="50" id="E4u-ds-TtZ"/>
                             <constraint firstItem="Qzh-rz-tfV" firstAttribute="leading" secondItem="54q-BE-Ppg" secondAttribute="leading" constant="50" id="Hkd-ZT-7XV"/>
                             <constraint firstItem="mry-cD-Ncf" firstAttribute="top" secondItem="54q-BE-Ppg" secondAttribute="top" constant="50" id="JhE-hU-TWw"/>
-                            <constraint firstItem="54q-BE-Ppg" firstAttribute="bottom" secondItem="Qzh-rz-tfV" secondAttribute="bottom" constant="50" id="U2P-h6-bWz"/>
+                            <constraint firstItem="54q-BE-Ppg" firstAttribute="bottom" secondItem="Qzh-rz-tfV" secondAttribute="bottom" constant="10" id="U2P-h6-bWz"/>
                             <constraint firstItem="6aB-nu-AcU" firstAttribute="top" secondItem="mry-cD-Ncf" secondAttribute="bottom" constant="100" id="V3y-XD-MAN"/>
                             <constraint firstItem="54q-BE-Ppg" firstAttribute="trailing" secondItem="Qzh-rz-tfV" secondAttribute="trailing" constant="50" id="Wp4-1B-jAH"/>
                             <constraint firstItem="ubF-Pe-ctb" firstAttribute="top" secondItem="6aB-nu-AcU" secondAttribute="bottom" constant="50" id="dIJ-66-cvE"/>
@@ -606,7 +606,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mny-J2-nc9"/>
+        <segue reference="TZU-4l-MoV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="arrowshape.turn.up.left.circle" catalog="system" width="128" height="121"/>
