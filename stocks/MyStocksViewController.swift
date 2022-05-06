@@ -55,7 +55,7 @@ class MyStocksViewController: UIViewController {
 private extension MyStocksViewController {
 
     func loadList() {
-        
+
         let list = MyStocks().load()
 
         let count = list.count
@@ -66,6 +66,7 @@ private extension MyStocksViewController {
         guard count > 0 else { return }
 
         dataSource = makeDataSource(items: list, sort: sort)
+        
         tableView.reloadData()
     }
 
@@ -265,11 +266,30 @@ extension MyStocksViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // step 1 of 2: update data
+            let database = Firestore.firestore()
             var s = MyStocks()
             var list = s.load()
             list.remove(at: indexPath.row)
             s.save(list)
-
+            
+            let sh = dataSource[indexPath.section]
+            var item = sh.items?[indexPath.row]
+            var symbol = item?.symbol
+            
+            database.collection(Auth.auth().currentUser!.email!).document(symbol!).delete(){
+                err in
+                if let err = err{
+                    print(err)
+                }
+                else{
+                    print("success")
+                    
+                }
+            }
+                           
+                
+            
+           
             // step 2 of 2: update ui
             dataSource = makeDataSource(items: list, sort: sort)
             loadList()
@@ -336,17 +356,23 @@ extension MyStocksViewController: SelectStock {
 
     func didSelect(_ stock: String?) {
         guard let stock = stock else { return }
+        let database = Firestore.firestore()
 
         var s = MyStocks()
         var list = s.load()
-
+ 
         let item = Item(symbol: stock)
 
         guard list.contains(item) == false else { return }
 
         list.append(item)
         s.save(list)
-
+        
+        database.collection(Auth.auth().currentUser!.email!).document(stock).setData([
+            "selected" : true
+            
+        ])
+        
         loadList()
         updateNavBar()
         updateStockData()
